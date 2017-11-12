@@ -22,7 +22,8 @@ namespace CurrencyTrader.AdoNet
         public void Persist(IEnumerable<TradeRecord> trades)
         {
             logger.LogInfo("Starting synch trade storage");
-            SyngTradeStorage.Persist(trades);
+            // SyngTradeStorage.Persist(trades);
+            Task.Run(() => SyngTradeStorage.Persist(trades));
         }
     }
 }
